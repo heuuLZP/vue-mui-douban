@@ -29,7 +29,7 @@
 import Mock from 'mockjs'
 
 export default {
-  name: 'home',
+  name: 'other',
   data () {
     return {
       bookList: []
@@ -51,6 +51,13 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
+html, body {
+  height: 100%;
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #2c3e50;
+}
 .home {
   height: 100%;
   padding-top: 51px;
