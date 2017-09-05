@@ -3,26 +3,25 @@
     <header>
       <div class="h-inner">
         <div class="h-title">
-          <h1>豆瓣</h1>
+          <h1>豆瓣图书</h1>
         </div>
       </div>
-      <div class="container">
-        <ul>
-          <li class="item" v-for="item in bookList">
-            <div class="cover">
-              <img :src=item.image :alt=item.bookname class="img-show">
-            </div>
-            <div class="info">
-              <h4></h4>
-              <h3>{{item.bookname}}</h3>
-              <p class="meta">{{item.author}}</p>
-              <p class="meta">{{item.info}}</p>
-            </div>
-          </li>
-        </ul>
-      </div>
-
     </header>
+    <div class="container">
+      <ul>
+        <li class="item" v-for="item in bookList">
+          <div class="cover">
+            <img :src=item.image :alt=item.bookname class="img-show">
+          </div>
+          <div class="info">
+            <h4></h4>
+            <h3>{{item.bookname}}</h3>
+            <p class="meta author">{{item.author}}</p>
+            <p class="meta">{{item.info}}</p>
+          </div>
+        </li>
+      </ul>
+      </div>
   </div>
 </template>
 
@@ -43,7 +42,7 @@ export default {
         'bookname': '@ctitle',
         'author': '@cname',
         'info': '@cparagraph',
-        'image': '@image("200x300", "#ffcccc")'
+        'image': '@image("200x250", "#ffcccc")'
       }]
     }).list
   }
@@ -52,6 +51,10 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
+.home {
+  height: 100%;
+  padding-top: 51px;
+}
   /**
    * header部分
    */
@@ -64,6 +67,7 @@ export default {
     background: #fff;
   }
   .h-inner {
+    height: 100%;
     padding: 15px 20px;
     border-bottom: 1px solid #ebebeb;
   }
@@ -105,6 +109,9 @@ export default {
       .meta {
         font-size: 12px;
         margin: 0;
+      }
+      .author {
+        color: #333;
       }
     }
   }
