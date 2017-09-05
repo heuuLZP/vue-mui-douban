@@ -3,7 +3,7 @@
     <header>
       <div class="h-inner">
         <div class="h-title">
-          <h1>豆瓣图书</h1>
+          <a href="other.html"><h1>豆瓣图书</h1></a>
         </div>
       </div>
     </header>
@@ -27,6 +27,7 @@
 
 <script>
 import Mock from 'mockjs'
+import mui from 'mui'
 
 export default {
   name: 'home',
@@ -45,6 +46,8 @@ export default {
         'image': '@image("200x250", "#ffcccc")'
       }]
     }).list
+
+    console.log(mui)
   }
 }
 </script>

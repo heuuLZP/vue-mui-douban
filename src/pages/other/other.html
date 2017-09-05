@@ -12,4 +12,14 @@
     </div>
     <!-- built files will be auto injected -->
   </body>
+  <script src="static/mui/js/mui.min.js"></script>
+  <script>
+    mui.init()
+    mui.plusReady(function () {
+      plus.key.addEventListener("backbutton",onback);
+      function onback() {
+      		mui.back()
+      }
+    })
+  </script>
 </html>
