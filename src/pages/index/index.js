@@ -8,6 +8,8 @@ Vue.config.productionTip = false
 import 'normalize.css'
 import '../../assets/css/base.css'
 
+import '../../mock/index'
+
 /* eslint-disable no-new */
 new Vue({
   el: '#home',

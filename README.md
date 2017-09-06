@@ -26,10 +26,11 @@
 git clone https://github.com/heuuLZP/vue-mui-douban.git
 ```
 
-通过npm安装本地服务第三方依赖模块
+通过cnpm安装本地服务第三方依赖模块
 
 ```
-npm install
+## npm太慢了
+cnpm install
 ```
 
 使用淘宝镜像安装sass相关依赖

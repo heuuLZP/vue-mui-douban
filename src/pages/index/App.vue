@@ -28,7 +28,8 @@
 </template>
 
 <script>
-import Mock from 'mockjs'
+import mui from 'mui'
+import API from '../../common/api/index'
 
 export default {
   name: 'home',
@@ -38,15 +39,10 @@ export default {
     }
   },
   mounted: function () {
-    this.bookList = Mock.mock({
-      'list|20': [{
-        'id|+1': 1,
-        'bookname': '@ctitle',
-        'author': '@cname',
-        'info': '@cparagraph',
-        'image': '@image("200x250", "#ffcccc")'
-      }]
-    }).list
+    mui.get(API.List.list, {}, (data) => {
+      // 获得服务器响应
+      this.bookList = data.list
+    }, 'json')
   }
 }
 </script>
