@@ -1,7 +1,5 @@
 > vue-mui-douban
 
-**请切换至develop分支**
-
 #### 项目技术架构
 
 ---
