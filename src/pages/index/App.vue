@@ -7,10 +7,10 @@
         </div>
       </div>
     </header>
-    <div class="container">
-      <ul>
-        <a href="other.html" v-for="item in bookList">
-          <li class="item">
+    <div class="container mui-scroll-wrapper" id="refresh">
+      <ul id="list">
+        <li class="item" v-for="item in bookList">
+          <a href="other.html" :id=item.id>
             <div class="cover">
               <img :src=item.image :alt=item.bookname class="img-show">
             </div>
@@ -20,8 +20,8 @@
               <p class="meta author">{{item.author}}</p>
               <p class="meta">{{item.info}}</p>
             </div>
-          </li>
-        </a>
+          </a>
+        </li>
       </ul>
     </div>
   </div>
@@ -29,7 +29,6 @@
 
 <script>
 import Mock from 'mockjs'
-import mui from 'mui'
 
 export default {
   name: 'home',
@@ -48,8 +47,6 @@ export default {
         'image': '@image("200x250", "#ffcccc")'
       }]
     }).list
-
-    console.log(mui)
   }
 }
 </script>
@@ -87,9 +84,13 @@ export default {
    * 内容区域
    */
   a {
+    position: relative;
     display: block;
     text-decoration: none;
     color: #333;
+    margin: -20px -4%;
+    padding: inherit;
+    overflow: hidden;
   }
   .item {
     padding: 20px 4%;
