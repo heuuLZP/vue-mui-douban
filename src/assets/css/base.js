@@ -21,5 +21,23 @@ export default StyleSheet.create({
     },
     "li": {
         "listStyle": "none"
+    },
+    "html": {
+        "height": "100%",
+        "fontFamily": "'Avenir', Helvetica, Arial, sans-serif",
+        "WebkitFontSmoothing": "antialiased",
+        "MozOsxFontSmoothing": "grayscale",
+        "color": "#2c3e50"
+    },
+    "body": {
+        "height": "100%",
+        "fontFamily": "'Avenir', Helvetica, Arial, sans-serif",
+        "WebkitFontSmoothing": "antialiased",
+        "MozOsxFontSmoothing": "grayscale",
+        "color": "#2c3e50"
+    },
+    "clearfix": {
+        "clear": "both",
+        "display": "table"
     }
 });
