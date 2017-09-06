@@ -94,10 +94,10 @@ npm run build
 
 
 
-![list](/Users/callback/Desktop/list.png)
+![list](demo/list.png)
 
 
 
 
 
-![detail](/Users/callback/Desktop/detail.png)
+![detail](demo/detail.png)
