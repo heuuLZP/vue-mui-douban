@@ -14,12 +14,21 @@
   </body>
   <script src="static/mui/js/mui.min.js"></script>
   <script>
-    mui.init()
-    mui.plusReady(function () {
-      plus.key.addEventListener("backbutton",onback);
-      function onback() {
-      		mui.back()
-      }
-    })
+    (function() {
+      mui.init()
+      mui.plusReady(function () {
+        // 监听物理返回键
+        plus.key.addEventListener("backbutton",onback);
+        function onback() {
+        		mui.back = function() {
+              plus.webview.currentWebview().hide("auto", 300);
+      				//动画结束后，恢复默认值
+      				setTimeout(function() {
+      					window.scrollTo(0, 0);
+      				}, 300);
+            }
+        }
+      })
+    }())
   </script>
 </html>

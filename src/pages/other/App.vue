@@ -54,6 +54,15 @@ export default {
     }
   },
   mounted: function () {
+    // 监听自定义事件，获取新闻详情
+    document.addEventListener('get_detail', function (event) {
+      let id = event.detail.id
+      if (!id) {
+        return
+      }
+      console.log(id)
+    })
+
     this.bookInfo = Mock.mock({
       'id|+1': 1,
       'bookname': '@ctitle',
