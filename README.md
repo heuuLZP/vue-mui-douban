@@ -32,6 +32,13 @@ git clone https://github.com/heuuLZP/vue-mui-douban.git
 npm install
 ```
 
+使用淘宝镜像安装sass相关依赖
+
+```
+## sass 相关依赖
+cnpm install sass node-sass  sass-loader  --dev-save
+```
+
 样式调试
 
 ```
