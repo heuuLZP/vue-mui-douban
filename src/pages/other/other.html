@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>豆瓣</title>
+  </head>
+  <body>
+    <div id="other">
+    </div>
+    <!-- built files will be auto injected -->
+  </body>
+  <script src="static/mui/js/mui.min.js"></script>
+  <script>
+    (function() {
+      mui.init()
+      mui.plusReady(function () {
+        // 监听物理返回键
+        plus.key.addEventListener("backbutton",onback);
+        function onback() {
+        		mui.back = function() {
+              plus.webview.currentWebview().hide("auto", 300);
+      				//动画结束后，恢复默认值
+      				setTimeout(function() {
+      					window.scrollTo(0, 0);
+      				}, 300);
+            }
+        }
+      })
+    }())
+  </script>
+</html>

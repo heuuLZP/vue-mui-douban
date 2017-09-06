@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "mockjs": "^1.0.1-beta3",
+    "normalize.css": "^7.0.0",
     "vue": "^2.4.2",
     "vue-router": "^2.7.0"
   },

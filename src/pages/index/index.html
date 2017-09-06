@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="static/mui/css/mui.min.css">
+    <title>豆瓣</title>
+  </head>
+  <body>
+    <div id="home">
+    </div>
+    <!-- built files will be auto injected -->
+  </body>
+  <script src="static/mui/js/mui.min.js"></script>
+  <script>
+  (function() {
+    var aniShow = "pop-in";
+    var webview_detail = null;
+
+    mui.init({
+      pullRefresh: {
+					container: '#refresh',
+					down: {
+            style:'circle', // 必选，下拉刷新样式，目前支持原生5+ ‘circle’ 样式
+			      color:'#2BD009', // 可选，默认“#2BD009” 下拉刷新控件颜色
+			      height:'50px', // 可选,默认50px.下拉刷新控件的高度,
+			      range:'100px', // 可选 默认100px,控件可下拉拖拽的范围
+			      offset:'0px', // 可选 默认0px,下拉刷新控件的起始位置
+			      auto: false, // 可选,默认false.首次加载自动上拉刷新一次
+			      callback :refresh // 必选，刷新函数，根据具体业务来编写，比如通过ajax从服务器获取新数据；
+					}
+				}
+    })
+    function refresh () {
+      setTimeout(function(){
+        mui.toast('refresh');
+        mui("#refresh").pullRefresh().endPulldownToRefresh();
+      },100)
+    }
+
+    mui.plusReady(function () {
+
+      //预加载详情页
+				webview_detail = mui.preload({
+					url: 'other.html',
+					id: 'other',
+					styles: {
+						"render": "always",
+						"popGesture": "hide",
+						"bounce": "vertical",
+						"bounceBackground": "#efeff4"
+					}
+				});
+
+      //主列表点击事件
+  		mui('#list').on('tap', 'a', function() {
+        console.log(this.getAttribute('href'));
+  			var href = this.getAttribute('href');
+  			var id = this.getAttribute('id');
+
+  				//非plus环境，直接走href跳转
+  				if(!mui.os.plus){
+  					location.href = href;
+  					return;
+  				}
+
+          open_detail(id);
+  	    })
+
+        /**
+         * 打开详情页
+         * @param  id             [列表项的id]
+         * @return {[type]}       [description]
+         */
+        function open_detail(id){
+          //若详情页尚未预加载完成，则延时等待再执行
+          if(!webview_detail) {
+            setTimeout(function() {
+              open_detail(id);
+            }, 100);
+          }
+          //触发子窗口变更新闻详情
+          mui.fire(webview_detail, 'get_detail', {
+            id: id
+          });
+
+          setTimeout(function () {
+            webview_detail.show("slide-in-right", 300);
+          },150);
+        }
+    })
+  }())
+  </script>
+</html>
