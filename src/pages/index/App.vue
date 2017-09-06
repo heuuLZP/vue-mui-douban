@@ -3,25 +3,27 @@
     <header>
       <div class="h-inner">
         <div class="h-title">
-          <a href="other.html"><h1>豆瓣图书</h1></a>
+          <h1>豆瓣图书</h1>
         </div>
       </div>
     </header>
     <div class="container">
       <ul>
-        <li class="item" v-for="item in bookList">
-          <div class="cover">
-            <img :src=item.image :alt=item.bookname class="img-show">
-          </div>
-          <div class="info">
-            <h4></h4>
-            <h3>{{item.bookname}}</h3>
-            <p class="meta author">{{item.author}}</p>
-            <p class="meta">{{item.info}}</p>
-          </div>
-        </li>
+        <a href="other.html" v-for="item in bookList">
+          <li class="item">
+            <div class="cover">
+              <img :src=item.image :alt=item.bookname class="img-show">
+            </div>
+            <div class="info">
+              <h4></h4>
+              <h3>{{item.bookname}}</h3>
+              <p class="meta author">{{item.author}}</p>
+              <p class="meta">{{item.info}}</p>
+            </div>
+          </li>
+        </a>
       </ul>
-      </div>
+    </div>
   </div>
 </template>
 
@@ -84,6 +86,11 @@ export default {
   /**
    * 内容区域
    */
+  a {
+    display: block;
+    text-decoration: none;
+    color: #333;
+  }
   .item {
     padding: 20px 4%;
     overflow: hidden;
@@ -111,7 +118,8 @@ export default {
       }
       .meta {
         font-size: 12px;
-        margin: 0;
+        margin-top: 5px;
+        line-height: 1.5;
       }
       .author {
         color: #333;
