@@ -92,9 +92,15 @@ npm run build
 
 
 
+list.png
+
 ![list](demo/list.png)
 
 
+
+
+
+detail.png
 
 
 
