@@ -1,2 +1,2 @@
-// 数据列表
+// 列表数据
 export const list = '/lzp/list'

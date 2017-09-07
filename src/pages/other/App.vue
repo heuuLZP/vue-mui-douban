@@ -44,7 +44,8 @@
 </template>
 
 <script>
-import Mock from 'mockjs'
+import mui from 'mui'
+import API from '../../common/api/index'
 
 export default {
   name: 'other',
@@ -55,24 +56,17 @@ export default {
   },
   mounted: function () {
     // 监听自定义事件，获取新闻详情
-    document.addEventListener('get_detail', function (event) {
+    document.addEventListener('get_detail', (event) => {
       let id = event.detail.id
       if (!id) {
         return
       }
       console.log(id)
-    })
 
-    this.bookInfo = Mock.mock({
-      'id|+1': 1,
-      'bookname': '@ctitle',
-      'author': '@cname',
-      'info': '@cparagraph',
-      'image': '@image("200x250", "#ffcccc")',
-      'page|1-100': 100,
-      'date': '@date("yyyy-M-d")',
-      'isbn': 9787513323369,
-      'binding': '精装'
+      mui.get(API.Detail.detail, {}, (data) => {
+        // 获得服务器响应
+        this.bookInfo = data
+      }, 'json')
     })
   }
 }
