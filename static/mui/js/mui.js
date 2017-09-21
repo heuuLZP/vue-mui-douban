@@ -134,7 +134,7 @@ var mui = (function(document, undefined) {
 			return object instanceof Array;
 		};
 	/**
-	 * mui isArrayLike 
+	 * mui isArrayLike
 	 * @param {Object} obj
 	 */
 	$.isArrayLike = function(obj) {
@@ -1943,7 +1943,7 @@ Function.prototype.bind = Function.prototype.bind || function(to) {
 		return $.addAction('inits', init);
 	};
 	/**
-	 * 处理html5版本subpages 
+	 * 处理html5版本subpages
 	 */
 	$.addInit({
 		name: 'iframe',
@@ -2412,7 +2412,7 @@ Function.prototype.bind = Function.prototype.bind || function(to) {
 					var _title = $.options.titleConfig.title;
 					view.drawText(_title.text,_title.position , _title.styles);
 				}
-				
+
 				//返回图标绘制
 				var _back = $.options.titleConfig.back;
 				var backClick = null;
@@ -2445,7 +2445,7 @@ Function.prototype.bind = Function.prototype.bind || function(to) {
 				view.interceptTouchEvent(true);
 				view.addEventListener("click", function(e) {
 					var x = e.clientX;
-					
+
 					//返回按钮点击
 					if(backClick&& x > backClick.left && x < backClick.right){
 						if( _back.click && $.isFunction(_back.click)){
@@ -2497,7 +2497,7 @@ Function.prototype.bind = Function.prototype.bind || function(to) {
 					webview = plus.webview.getWebviewById(id);
 				}
 
-				//之前没有，那就新创建	
+				//之前没有，那就新创建
 				if(!webview) {
 					webview = plus.webview.create(options.url, id, $.windowOptions(options.styles), $.extend({
 						preload: true
@@ -2539,7 +2539,7 @@ Function.prototype.bind = Function.prototype.bind || function(to) {
 				var webviewCache = $.webviews[first];
 				if(webviewCache && webviewCache.webview) {
 					//需要将自己打开的所有页面，全部close；
-					//关闭该预加载webview	
+					//关闭该预加载webview
 					$.closeAll(webviewCache.webview);
 				}
 				//删除缓存
@@ -2852,7 +2852,7 @@ Function.prototype.bind = Function.prototype.bind || function(to) {
 						if (wobj.id === plus.runtime.appid) { //首页
 							//首页不存在opener的情况下，后退实际上应该是退出应用；
 							//首次按键，提示‘再按一次退出应用’
-							if (!$.__back__first) {
+							/*if (!$.__back__first) {
 								$.__back__first = new Date().getTime();
 								mui.toast('再按一次退出应用');
 								setTimeout(function() {
@@ -2862,7 +2862,8 @@ Function.prototype.bind = Function.prototype.bind || function(to) {
 								if (new Date().getTime() - $.__back__first < 2000) {
 									plus.runtime.quit();
 								}
-							}
+							}*/
+              plus.runtime.quit();
 						} else { //其他页面，
 							if (wobj.preload) {
 								wobj.hide("auto");
@@ -3346,7 +3347,7 @@ Function.prototype.bind = Function.prototype.bind || function(to) {
 			left : box.left + window.pageXOffset - element.clientLeft
 		};
 	};
-})(mui, window); 
+})(mui, window);
 /**
  * mui animation
  */
@@ -4706,7 +4707,7 @@ Function.prototype.bind = Function.prototype.bind || function(to) {
 			} else if (options.up && options.up.auto) { //如果设置了auto，则自动上拉一次
 				pullRefreshApi.pullupLoading();
 			}
-			//暂不提供这种调用方式吧			
+			//暂不提供这种调用方式吧
 			//			if (typeof options === 'string') {
 			//				var methodValue = pullRefreshApi[options].apply(pullRefreshApi, $.slice.call(arguments, 1));
 			//				if (methodValue !== undefined) {
@@ -5195,7 +5196,7 @@ Function.prototype.bind = Function.prototype.bind || function(to) {
                         var downOptions = self.options.down;
                         var height = downOptions.height;
                         webview.addEventListener('close', function() {
-                            var attrWebviewId = self.options.webviewId && self.options.webviewId.replace(/\//g, "_"); //替换所有"/" 
+                            var attrWebviewId = self.options.webviewId && self.options.webviewId.replace(/\//g, "_"); //替换所有"/"
                             self.element.removeAttribute('data-pullrefresh-plus-' + attrWebviewId);
                         });
                         webview.addEventListener("dragBounce", function(e) {
@@ -5220,7 +5221,7 @@ Function.prototype.bind = Function.prototype.bind || function(to) {
                                     break;
                             }
                         }, false);
-                        
+
                         webview.setBounce({
                             position: {
                                 top: height * 2 + 'px'
@@ -5229,7 +5230,7 @@ Function.prototype.bind = Function.prototype.bind || function(to) {
                                 top: height + 'px'
                             }
                         });
-                    
+
 	                }
                 });
             },
@@ -5275,7 +5276,7 @@ Function.prototype.bind = Function.prototype.bind || function(to) {
                     });
                 }
             },
-            beginPulldown:function() { 
+            beginPulldown:function() {
                 $.plusReady(function() {
                 		var _wv = plus.webview.currentWebview();
                 		var self = this;
@@ -5320,7 +5321,7 @@ Function.prototype.bind = Function.prototype.bind || function(to) {
             },
             endPulldownToRefresh: function () {//该方法是子页面调用的，兼容老的历史API
            	 	this.endPulldown();
-            }, 
+            },
             _endPulldownToRefresh: function() { //该方法是父页面调用的
                 var self = this;
                 if (self.topPocket && self.options.webview) {
@@ -6378,7 +6379,7 @@ Function.prototype.bind = Function.prototype.bind || function(to) {
 			if (target.parentNode && target.parentNode.classList && target.parentNode.classList.contains(CLASS_SEGMENTED_CONTROL_VERTICAL)) {
 				//vertical 如果preventDefault会导致无法滚动
 			} else {
-				event.preventDefault(); //stop hash change				
+				event.preventDefault(); //stop hash change
 			}
 			//			if (target.hash) {
 			return target;
@@ -7319,16 +7320,16 @@ Function.prototype.bind = Function.prototype.bind || function(to) {
 			setTimeout(function() {
 				toast && toast.classList.remove(CLASS_ACTIVE);
 			}, duration);
-			
+
 			return {
 		        isVisible: function() {return !!toast;}
 		    }
-		}   
+		}
 	};
 
 })(mui, window);
 /**
- * Popup(alert,confirm,prompt)  
+ * Popup(alert,confirm,prompt)
  * @param {Object} $
  * @param {Object} window
  * @param {Object} document
@@ -7563,7 +7564,7 @@ Function.prototype.bind = Function.prototype.bind || function(to) {
 		}
 	};
 	/**
-	 * 创建并显示进度条 
+	 * 创建并显示进度条
 	 * @param {Object} container  可选，默认body，支持selector,DOM Node,mui wrapper
 	 * @param {Object} progress 可选，undefined表示循环，数字表示具体进度
 	 * @param {Object} color 可选，指定颜色样式(目前暂未提供实际样式，可暂时不暴露此参数)
@@ -7606,7 +7607,7 @@ Function.prototype.bind = Function.prototype.bind || function(to) {
 		return progressbar;
 	};
 	/**
-	 * 关闭进度条 
+	 * 关闭进度条
 	 * @param {Object} container 可选，默认body，支持selector,DOM Node,mui wrapper
 	 */
 	var hideProgressbar = function(container) {
@@ -7627,7 +7628,7 @@ Function.prototype.bind = Function.prototype.bind || function(to) {
 		return;
 	};
 	/**
-	 * 设置指定进度条进度 
+	 * 设置指定进度条进度
 	 * @param {Object} container  可选，默认body，支持selector,DOM Node,mui wrapper
 	 * @param {Object} progress 可选，默认0 取值范围[0-100]
 	 * @param {Object} speed 进度条动画时间
