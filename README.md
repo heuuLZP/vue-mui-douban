@@ -113,3 +113,6 @@ detail.png
 
 
 ![detail](demo/detail.png)
+
+####  特别提醒
+本项目修改了mui.js源码，注释了首页退出的判断。
